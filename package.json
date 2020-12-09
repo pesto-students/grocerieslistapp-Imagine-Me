@@ -4,6 +4,7 @@
   "description": "App for listing grocery list",
   "main": "index.js",
   "scripts": {
+    "start": "node Server.js",
     "test": "jest"
   },
   "repository": {
