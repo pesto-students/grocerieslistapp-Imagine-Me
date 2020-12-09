@@ -1,10 +1,12 @@
 # grocery-list
-A CRUD application for creating grocery list
+A CRUD application for creating grocery list. User can login using user name and password and add or remove the grocery items.
 
-<code>git clone https://github.com/Imagine-Me/grocery-list.git</code>
+<h2>Clone Project</h2>
 
-<p>Install dependencies</p>
+<code>git clone https://github.com/pesto-students/grocerieslistapp-Imagine-Me.git</code>
+
+<h2>Install dependencies</h2>
 <code>npm i</code>
-<p>To run application</p>
+<h2>Run application</h2>
 <code>node Server.js</code>
 <p>Visit <a href="http://127.0.0.1:8000/">here</a> to the application <p>
