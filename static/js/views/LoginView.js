@@ -24,7 +24,7 @@ export default class LoginView extends ComponentView {
                 ${error_in_password}
                 <input class="${this.error.password ? 'form-error': ''}" type="password" name="password" value="${this.password}" placeholder="Enter password" />
                 <div class="text-center">
-                    <input class="btn btn-primary" type="submit" value="Login" />
+                    <input class="btn btn-primary" type="submit" value="Login/Signup" />
                 </div>
             </form>
         `

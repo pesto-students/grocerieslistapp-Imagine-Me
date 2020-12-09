@@ -2,7 +2,6 @@ function manageSiteState() {
 
     const LOCAL_STORAGE_KEY = "pesto-grocery-list"
     const MAX_USERS = 3;
-    const MAX_GROCERIES = 5;
 
     let local_storage_data = localStorage.getItem(LOCAL_STORAGE_KEY)
     if (!local_storage_data) {
@@ -139,9 +138,16 @@ function manageSiteState() {
             message: "Item deleted"
         }
     }
-    return { siteData, signUpUser, addGroceryItem, deleteGroceryItem, updateGroceryItem }
+
+    const logoutUser = () => {
+        siteData.isLogin = false
+        return {
+            status: true
+        }
+    }
+    return { siteData, signUpUser, addGroceryItem, deleteGroceryItem, updateGroceryItem, logoutUser }
 }
 
-const { siteData, signUpUser, addGroceryItem, deleteGroceryItem, updateGroceryItem } = manageSiteState()
+const { siteData, signUpUser, addGroceryItem, deleteGroceryItem, updateGroceryItem, logoutUser } = manageSiteState()
 
-export { siteData, signUpUser, addGroceryItem, deleteGroceryItem, updateGroceryItem };
+export { siteData, signUpUser, addGroceryItem, deleteGroceryItem, updateGroceryItem, logoutUser };

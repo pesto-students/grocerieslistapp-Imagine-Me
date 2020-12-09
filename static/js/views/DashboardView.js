@@ -1,4 +1,4 @@
-import { deleteGroceryItem, siteData } from "../Utils/manageSiteState.js";
+import { deleteGroceryItem, siteData, logoutUser } from "../Utils/manageSiteState.js";
 import ComponentView from "./ComponentView.js";
 
 export default class DashboardView extends ComponentView {
@@ -25,11 +25,12 @@ export default class DashboardView extends ComponentView {
             <div class="d-flex justify-space-between flex-wrap mt-5 p-1">
                 <div class="d-flex align-items-center">
                     <img class="mr-1" width="50" height="50" src="static/images/user-icon.png" alt="user" />
-                    <h3>${this.userData.name}</h3>
+                    <h3 class="mr-1">${this.userData.name}</h3>
                 </div>
                 <div class="d-flex align-items-center">
                     <span class="mr-1">Remaining ${5 - this.userData.groceries.length}</span>
-                    <button class="btn btn-primary add-grocery-item" ${(5 - this.userData.groceries.length) === 0 ? 'disabled' : ''}>&#x2b; Add Item</button>
+                    <button class="btn btn-primary add-grocery-item mr-1" ${(5 - this.userData.groceries.length) === 0 ? 'disabled' : ''}>&#x2b; Add Item</button>
+                    <button class="btn btn-danger logout">Logout</button>
                 </div>
             </div>
             <div class="p-1">
@@ -42,6 +43,7 @@ export default class DashboardView extends ComponentView {
 
     addListeners() {
         document.querySelector('button.add-grocery-item').addEventListener('click', this.addItemHandler)
+        document.querySelector('button.logout').addEventListener('click', this.logoutHandler)
         const delete_link = document.querySelectorAll('button.item-delete')
         for (let i = 0; i < delete_link.length; i++) {
             delete_link[i].addEventListener('click', this.deleteItemHandler)
@@ -70,6 +72,7 @@ export default class DashboardView extends ComponentView {
 
     removeListeners() {
         document.querySelector('button.add-grocery-item').removeEventListener('click', this.addItemHandler)
+        document.querySelector('button.logout').removeEventListener('click', this.logoutHandler)
         const delete_link = document.querySelectorAll('button.item-delete')
         for (let i = 0; i < delete_link.length; i++) {
             delete_link[i].addEventListener('click', this.deleteItemHandler)
@@ -92,5 +95,10 @@ export default class DashboardView extends ComponentView {
             this.update()
 
         }
+    }
+
+    logoutHandler = () => {
+        logoutUser()
+        this.navigateTo('/login')
     }
 }

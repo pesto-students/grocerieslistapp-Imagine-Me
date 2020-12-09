@@ -8,5 +8,7 @@ A CRUD application for creating grocery list. User can login using user name and
 <h2>Install dependencies</h2>
 <code>npm i</code>
 <h2>Run application</h2>
-<code>node Server.js</code>
+<code>npm start</code>
 <p>Visit <a href="http://127.0.0.1:8000/">here</a> to the application <p>
+<h2>Live version</h2>
+<p>Visit <a href="https://eloquent-kowalevski-6da94f.netlify.app/login">here</a>
