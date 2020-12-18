@@ -21,12 +21,12 @@ function manageSiteState() {
         localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(siteData.data))
     }
 
-    const signUpUser = (name, password) => {
+    const signUpUser = (name, password, isLoginPage) => {
         if (name.trim() === "" || password.trim() === "")
             return {
                 status: false,
                 error: {
-                    name: name.trim() === "",
+                    name: "Username required",
                     password: password.trim() === ""
                 }
             }
@@ -34,16 +34,34 @@ function manageSiteState() {
 
         const data = [...siteData.data]
         for (let i = 0; i < data.length; i++) {
-            if (data[i] !== undefined && data[i].name === name && data[i].password === password) {
-                siteData.userData = data[i]
-                siteData.index = i
-                siteData.isLogin = true
-                return {
-                    status: true,
-                    error: {}
+            if (isLoginPage) {
+                if (data[i] !== undefined && data[i].name === name && data[i].password === password) {
+                    siteData.userData = data[i]
+                    siteData.index = i
+                    siteData.isLogin = true
+                    return {
+                        status: true,
+                        error: {}
+                    }
                 }
             }
+            else {
+                if (data[i] !== undefined && data[i].name === name)
+                    return {
+                        status: false,
+                        error: {
+                            name: "User already exists",
+                        }
+                    }
+            }
         }
+        if(isLoginPage && !siteData.isLogin)
+            return {
+                status: false,
+                error: {
+                    message: "Username or password incorrect"
+                }
+            }
 
         for (let i = data.length - 1; i >= 0; i--) {
             if (i < MAX_USERS - 1) {
