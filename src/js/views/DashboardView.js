@@ -1,4 +1,4 @@
-import { deleteGroceryItem, siteData, logoutUser } from "../Utils/manageSiteState.js";
+import { deleteGroceryItem, siteData, logoutUser } from "../data/manageSiteState.js";
 import ComponentView from "./ComponentView.js";
 
 export default class DashboardView extends ComponentView {
@@ -24,7 +24,7 @@ export default class DashboardView extends ComponentView {
         return `
             <div class="d-flex justify-space-between flex-wrap mt-5 p-1">
                 <div class="d-flex align-items-center">
-                    <img class="mr-1" width="50" height="50" src="static/images/user-icon.png" alt="user" />
+                    <img class="mr-1" width="50" height="50" src="src/images/user-icon.png" alt="user" />
                     <h3 class="mr-1">${this.userData.name}</h3>
                 </div>
                 <div class="d-flex align-items-center">

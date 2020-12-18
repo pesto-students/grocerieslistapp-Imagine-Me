@@ -1,5 +1,5 @@
 
-import { addGroceryItem, siteData, updateGroceryItem } from "../Utils/manageSiteState.js";
+import { addGroceryItem, siteData, updateGroceryItem } from "../data/manageSiteState.js";
 import ComponentView from "./ComponentView.js";
 
 export default class ItemView extends ComponentView {

@@ -1,5 +1,5 @@
-import { siteData } from './Utils/manageSiteState.js'
-import { render, addListeners, removeListeners } from './Utils/renderComponent.js'
+import { siteData } from './data/manageSiteState.js'
+import { render, addListeners, removeListeners } from './service/renderComponent.js'
 import DashboardView from './views/DashboardView.js'
 import ItemView from './views/ItemView.js'
 import LoginView from './views/LoginView.js'

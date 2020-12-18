@@ -1,5 +1,5 @@
 import { navigateTo } from "../app.js"
-import { update } from "../Utils/renderComponent.js"
+import { update } from "../service/renderComponent.js"
 
 export default class {
     constructor() {

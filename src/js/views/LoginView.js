@@ -1,6 +1,6 @@
 import ComponentView from "./ComponentView.js";
 
-import { signUpUser } from '../Utils/manageSiteState.js'
+import { signUpUser } from '../data/manageSiteState.js'
 
 export default class LoginView extends ComponentView {
     constructor() {
