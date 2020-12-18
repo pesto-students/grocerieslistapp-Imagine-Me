@@ -20,6 +20,7 @@ const getCurrentRoute = () => {
         { path: '/login', view: LoginView }, //1
         { path: '/item/create', view: ItemView }, //2
         { path: '/item/update', view: ItemView }, //3
+        { path: '/register', view: LoginView }, //4
     ]
 
     const routeMatches = routes.map(route => ({
@@ -50,7 +51,7 @@ const router = () => {
             },
             isMatch: true
         }
-    } else if (!siteData.isLogin) {
+    } else if (!siteData.isLogin && !(/register/.test(location.pathname))) {
         history.pushState(null, null, '/login')
         currentRoute = {
             route: {
