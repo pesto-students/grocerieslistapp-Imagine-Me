@@ -11,4 +11,4 @@ A CRUD application for creating grocery list. User can login using user name and
 <code>npm start</code>
 <p>Visit <a href="http://127.0.0.1:8000/">here</a> to the application <p>
 <h2>Live version</h2>
-<p>Visit <a href="https://eloquent-kowalevski-6da94f.netlify.app/">here</a>
+<p>Visit <a href="https://heuristic-kowalevski-4f72d5.netlify.app/">here</a>
