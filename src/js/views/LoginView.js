@@ -16,20 +16,15 @@ export default class LoginView extends ComponentView {
         this.password = ''
     }
     getHtml() {
-        let error_in_name = '';
-        let error_in_password = '';
-        let error_message='';
-        if (this.error.name)
-            error_in_name = `<span class="error">${this.error.name}</span>`
-        if (this.error.password)
-            error_in_password = `<span class="error">Password is required</span>`
-        if (this.error.message)
-            error_message = `<div id="alert-message" class="alert alert-danger text-center">${this.error.message}</div>`
+        let error_in_name = this.error.name ? `<span class="error">${this.error.name}</span>` : '';
+        let error_in_password = this.error.password ? `<span class="error">Password is required</span>` : '';
+        let error_message = this.error.message ? `<div id="alert-message" class="alert alert-danger text-center">${this.error.message}</div>` : '';
+        
         return `
             <form class="login-form card mt-5">
                 <h1 class="text-center">${this.isLoginPage ? 'Login' : 'Register'}</h1>
-                ${error_in_name}
                 ${error_message}
+                ${error_in_name}
                 <input class="${this.error.name ? 'form-error' : ''}" type="text" name="name" value="${this.name}" placeholder="Enter Name" />
                 ${error_in_password}
                 <input class="${this.error.password ? 'form-error' : ''}" type="password" name="password" value="${this.password}" placeholder="Enter password" />
@@ -44,11 +39,11 @@ export default class LoginView extends ComponentView {
     addListeners() {
         document.querySelector('form.login-form').addEventListener('submit', this.formSubmitHandler)
         const alert_box = document.getElementById('alert-message')
-        if(alert_box !== null)
-            setTimeout(()=>{
-                alert_box.style.display ='none'
-            },2000)
-    }   
+        if (alert_box !== null)
+            setTimeout(() => {
+                alert_box.style.display = 'none'
+            }, 2000)
+    }
 
     removeListeners() {
         document.querySelector('form.login-form').removeEventListener('submit', this.formSubmitHandler)
